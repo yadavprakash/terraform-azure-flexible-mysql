@@ -9,7 +9,7 @@ locals {
 }
 
 module "resource_group" {
-  source      = "git::https://github.com/opsstation/terraform-azure-resource-group.git?ref=v1.0.0"
+  source      = "git::https://github.com/yadavprakash/terraform-azure-resource-group.git?ref=v1.0.0"
   name        = "app"
   environment = "flexible"
   location    = "North Europe"
@@ -17,7 +17,7 @@ module "resource_group" {
 
 
 module "vnet" {
-  source              = "git::https://github.com/opsstation/terraform-azure-vnet.git?ref=v1.0.0"
+  source              = "git::https://github.com/yadavprakash/terraform-azure-vnet.git?ref=v1.0.0"
   name                = "app"
   environment         = "testnew"
   resource_group_name = module.resource_group.resource_group_name
@@ -26,7 +26,7 @@ module "vnet" {
 }
 
 module "subnet" {
-  source = "git::https://github.com/opsstation/terraform-azure-subnet.git?ref=v1.0.1"
+  source = "git::https://github.com/yadavprakash/terraform-azure-subnet.git?ref=v1.0.1"
 
   name                 = "app"
   environment          = "test"
@@ -100,3 +100,4 @@ module "flexible-mysql-replication" {
   server_configuration_names = ["interactive_timeout", "audit_log_enabled"]
   values                     = ["600", "ON"]
 }
+

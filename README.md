@@ -26,7 +26,7 @@ for creating AZURE resources, and you can customize the inputs as needed. Below 
 ```hcl
 module "flexible-mysql" {
   depends_on          = [module.resource_group, module.vnet]
-  source              = "git::https://github.com/opsstation/terraform-azure-flexible-mysql.git?ref=v1.0.0"
+  source              = "git::https://github.com/yadavprakash/terraform-azure-flexible-mysql.git?ref=v1.0.0"
   name                = local.name
   environment         = local.environment
   resource_group_name = module.resource_group.resource_group_name
@@ -55,7 +55,7 @@ module "flexible-mysql" {
 ```hcl
 module "flexible-mysql-replication" {
   depends_on                     = [module.resource_group, module.vnet, data.azurerm_resource_group.main]
-  source                         = "git::https://github.com/opsstation/terraform-azure-flexible-mysql.git?ref=v1.0.0"
+  source                         = "git::https://github.com/yadavprakash/terraform-azure-flexible-mysql.git?ref=v1.0.0"
   name                           = local.name
   environment                    = local.environment
   main_rg_name                   = data.azurerm_resource_group.main.name
@@ -85,10 +85,10 @@ module "flexible-mysql-replication" {
 This example demonstrates how to create various AZURE resources using the provided modules. Adjust the input values to suit your specific requirements.
 
 ## Examples
-For detailed examples on how to use this module, please refer to the [examples](https://github.com/opsstation/terraform-azure-flexible-mysql/tree/master/_example) directory within this repository.
+For detailed examples on how to use this module, please refer to the [examples](https://github.com/yadavprakash/terraform-azure-flexible-mysql/tree/master/_example) directory within this repository.
 
 ## License
-This Terraform module is provided under the **MIT** License. Please see the [LICENSE](https://github.com/opsstation/terraform-azure-flexible-mysql/blob/master/LICENSE) file for more details.
+This Terraform module is provided under the **MIT** License. Please see the [LICENSE](https://github.com/yadavprakash/terraform-azure-flexible-mysql/blob/master/LICENSE) file for more details.
 
 ## Author
 Your Name
@@ -114,7 +114,7 @@ Replace **MIT** and **Cypik** with the appropriate license and your information.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/opsstation/terraform-azure-labels.git | v1.0.0 |
+| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/yadavprakash/terraform-azure-labels.git | v1.0.0 |
 
 ## Resources
 
@@ -155,7 +155,7 @@ Replace **MIT** and **Cypik** with the appropriate license and your information.
 | <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. sequence of application name and environment `name`,`environment`,'attribute' [`webserver`,`qa`,`devops`,`public`,] . | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
 | <a name="input_location"></a> [location](#input\_location) | The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created. | `string` | `""` | no |
 | <a name="input_main_rg_name"></a> [main\_rg\_name](#input\_main\_rg\_name) | n/a | `string` | `""` | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'opsstation'. | `string` | `""` | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'yadavprakash'. | `string` | `""` | no |
 | <a name="input_mysql_version"></a> [mysql\_version](#input\_mysql\_version) | The version of the MySQL Flexible Server to use. Possible values are 5.7, and 8.0.21. Changing this forces a new MySQL Flexible Server to be created. | `string` | `"5.7"` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `""` | no |
 | <a name="input_point_in_time_restore_time_in_utc"></a> [point\_in\_time\_restore\_time\_in\_utc](#input\_point\_in\_time\_restore\_time\_in\_utc) | The point in time to restore from creation\_source\_server\_id when create\_mode is PointInTimeRestore. Changing this forces a new MySQL Flexible Server to be created. | `string` | `null` | no |
